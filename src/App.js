@@ -9,18 +9,30 @@ const setStyle = {
 };
 
 function App() {
+  const nayoks = ["Rubel", "Bappa", "Kuber"];
+  const singers = [
+    { name: "Rubel", job: "cricketer" },
+    { name: "Bappa", job: "actor" },
+    { name: "Kuber", job: "actor" },
+  ];
   return (
     <div className="App">
-      <Person name="Rubel" />
-      <Friend name="Bappa" />
-      <Person name="Kopila" />
+      {nayoks.map((nayok) => (
+        <Person name={nayok} />
+      ))}
+      {singers.map((singer) => (
+        <Person style={setStyle} name={singer.name} />
+      ))}
+      {/* <Person name={nayoks[0]} />
+      <Friend name={nayoks[1]} />
+      <Person name={nayoks[2]} /> */}
     </div>
   );
 }
 
 function Person(props) {
   return (
-    <div>
+    <div style={props.style}>
       <h1>{props.name}</h1>
     </div>
   );
